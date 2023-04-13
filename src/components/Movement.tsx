@@ -9,8 +9,11 @@ export const MovementComponent = ({
 }: movementType): JSX.Element => {
   return (
     <>
-      <img src={type == 'INCOME' ? income : withdraw} />
-      <p>{type == 'INCOME' ? 'Carga de Saldo' : 'Envío de Premio'}</p>
+      <img
+        src={type === 'INCOME' ? income : withdraw}
+        alt={type === 'INCOME' ? 'Income icon' : 'Withdraw icon'}
+      />
+      <p>{type === 'INCOME' ? 'Carga de Saldo' : 'Envío de Premio'}</p>
       <div>
         <p>{(type === 'INCOME' ? '+$' : '-$') + amount}</p>
         <p>{date}</p>

@@ -11,10 +11,26 @@ export const ActionsComponent = () => {
   };
   return (
     <>
-      <img src={charge} onClick={() => handleActionClick('/charge')} />
-      <img src={movements} onClick={() => handleActionClick('/movements')} />
-      <img src={sendPrice} onClick={() => handleActionClick('/sendprize')} />
-      <img src={settings} onClick={() => handleActionClick('/settings')} />
+      <img
+        src={charge}
+        alt='Charge icon'
+        onClick={() => handleActionClick('/charge')}
+      />
+      <img
+        src={movements}
+        alt='Movements icon'
+        onClick={() => handleActionClick('/movements')}
+      />
+      <img
+        src={sendPrice}
+        alt='Withdraw icon'
+        onClick={() => handleActionClick('/withdraw')}
+      />
+      <img
+        src={settings}
+        alt='Settings icon'
+        onClick={() => handleActionClick('/settings')}
+      />
     </>
   );
 };
