@@ -21,14 +21,18 @@ export const WithdrawPageComponent = (): JSX.Element => {
     const filteredAccounts = linkedAccounts.filter((account) =>
       account.name.toLowerCase().includes(filter.toLowerCase())
     );
-    return filteredAccounts.map((acc) => {
-      return (
-        <>
-          <p key={acc.email}>{acc.name}</p>
-          <p>{acc.email}</p>
-        </>
-      );
-    });
+    if (filteredAccounts.length) {
+      return filteredAccounts.map((acc) => {
+        return (
+          <>
+            <p key={acc.email}>{acc.name}</p>
+            <p>{acc.email}</p>
+          </>
+        );
+      });
+    } else {
+      return <p>No hay resultados que coincidan con tu búsqueda</p>;
+    }
   };
 
   return (
