@@ -7,28 +7,43 @@ const initialState: userType = {
   balance: 10000,
   movements: [
     {
-      type: 'EXCHANGE',
-      ammount: 800,
+      type: 'WITHDRAW',
+      amount: 800,
       date: '2020-01-01T00:00:00.000Z',
     },
     {
       type: 'INCOME',
-      ammount: 10000,
+      amount: 10000,
       date: '2020-01-01T00:00:00.000Z',
     },
     {
-      type: 'EXCHANGE',
-      ammount: 2000,
+      type: 'WITHDRAW',
+      amount: 2000,
       date: '2020-01-01T00:00:00.000Z',
     },
     {
       type: 'INCOME',
-      ammount: 1000,
+      amount: 1000,
       date: '2020-01-01T00:00:00.000Z',
     },
     {
-      type: 'EXCHANGE',
-      ammount: 2500,
+      type: 'WITHDRAW',
+      amount: 2500,
+      date: '2020-01-01T00:00:00.000Z',
+    },
+    {
+      type: 'WITHDRAW',
+      amount: 2000,
+      date: '2020-01-01T00:00:00.000Z',
+    },
+    {
+      type: 'INCOME',
+      amount: 1000,
+      date: '2020-01-01T00:00:00.000Z',
+    },
+    {
+      type: 'WITHDRAW',
+      amount: 2500,
       date: '2020-01-01T00:00:00.000Z',
     },
   ],
@@ -69,8 +84,8 @@ export const userSlice = createSlice({
       state.movements.push(newMovement);
       state.balance =
         action.payload.type === 'INCOME'
-          ? state.balance + newMovement.ammount
-          : state.balance - newMovement.ammount;
+          ? state.balance + newMovement.amount
+          : state.balance - newMovement.amount;
     },
   },
 });
@@ -78,7 +93,7 @@ export const userSlice = createSlice({
 const createNewMovement = (data: any) => {
   return {
     type: data.type,
-    ammount: data.ammount,
+    amount: data.amount,
     date: data.date,
   };
 };

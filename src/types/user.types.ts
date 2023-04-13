@@ -1,6 +1,6 @@
 export interface movementType {
   type: string;
-  ammount: number;
+  amount: number;
   date: string;
 }
 
