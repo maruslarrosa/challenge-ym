@@ -10,6 +10,7 @@ export const WithdrawPageComponent = (): JSX.Element => {
     (state) => state.user.linkedAccounts
   );
   const [filter, setFilter] = useState<string>('');
+  const [checked, setChecked] = useState<number>();
 
   const handleFilterChange = () => {
     if (inputRef.current) {
@@ -22,12 +23,17 @@ export const WithdrawPageComponent = (): JSX.Element => {
       account.name.toLowerCase().includes(filter.toLowerCase())
     );
     if (filteredAccounts.length) {
-      return filteredAccounts.map((acc) => {
+      return filteredAccounts.map((acc, index) => {
         return (
-          <>
-            <p key={acc.email}>{acc.name}</p>
+          <div key={index}>
+            <p>{acc.name}</p>
             <p>{acc.email}</p>
-          </>
+            <input
+              type='radio'
+              checked={checked === index}
+              onChange={() => setChecked(index)}
+            ></input>
+          </div>
         );
       });
     } else {
@@ -50,12 +56,17 @@ export const WithdrawPageComponent = (): JSX.Element => {
       ></input>
       <p>Tus cuentas</p>
       {!filter
-        ? linkedAccounts.map((acc) => {
+        ? linkedAccounts.map((acc, index) => {
             return (
-              <>
-                <p key={acc.email}>{acc.name}</p>
+              <div key={index}>
+                <p>{acc.name}</p>
                 <p>{acc.email}</p>
-              </>
+                <input
+                  type='radio'
+                  checked={checked === index}
+                  onChange={() => setChecked(index)}
+                ></input>
+              </div>
             );
           })
         : renderFilteredAccounts()}
