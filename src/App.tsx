@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import {
   HeaderComponent,
   HomePageComponent,
+  IncomePageComponent,
   LoginPageComponent,
   VerificationPageComponent,
 } from './pages/pageindex';
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<LoginPageComponent />} />
           <Route path='/verification' element={<VerificationPageComponent />} />
           <Route path='/home' element={<HomePageComponent />} />
+          <Route path='/charge' element={<IncomePageComponent />} />
         </Routes>
       </Provider>
     </>
