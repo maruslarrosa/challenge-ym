@@ -41,7 +41,7 @@ export const VerificationPageComponent = () => {
         break;
       case 'input6':
         if (ref6.current?.value) {
-          navigate('/');
+          navigate('/home');
         }
         break;
       default:

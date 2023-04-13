@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 // Components
 import {
   HeaderComponent,
+  HomePageComponent,
   LoginPageComponent,
   VerificationPageComponent,
 } from './pages/pageindex';
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LoginPageComponent />} />
           <Route path='/verification' element={<VerificationPageComponent />} />
+          <Route path='/home' element={<HomePageComponent />} />
         </Routes>
       </Provider>
     </>
