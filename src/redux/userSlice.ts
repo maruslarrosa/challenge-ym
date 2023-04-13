@@ -80,8 +80,8 @@ export const userSlice = createSlice({
       state.logged = action.payload;
     },
     actionSetNewBalance: (state, action) => {
-      let newMovement: movementType = createNewMovement(action.payload);
-      state.movements.push(newMovement);
+      let newMovement: movementType = action.payload;
+      state.movements.unshift(newMovement);
       state.balance =
         action.payload.type === 'INCOME'
           ? state.balance + newMovement.amount
@@ -89,15 +89,6 @@ export const userSlice = createSlice({
     },
   },
 });
-
-const createNewMovement = (data: any) => {
-  return {
-    type: data.type,
-    amount: data.amount,
-    date: data.date,
-  };
-};
-
 export const { actionSetLogged, actionSetNewBalance } = userSlice.actions;
 
 export default userSlice.reducer;
