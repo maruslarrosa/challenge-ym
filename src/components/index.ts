@@ -1,3 +1,4 @@
 import { HomeBalanceComponent } from './HomeBalance';
+import { ActionsComponent } from './Actions';
 
-export { HomeBalanceComponent };
+export { ActionsComponent, HomeBalanceComponent };
