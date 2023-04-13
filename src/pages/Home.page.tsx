@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { actionSetLogged } from '../redux/userSlice';
 import { userType } from '../types/user.types';
@@ -8,6 +9,8 @@ export const HomePageComponent = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const [inputValue, setInputValue] = useState('');
+
   const handleLogin = () => {
     dispatch(actionSetLogged(true));
     navigate('/verification');
@@ -16,9 +19,16 @@ export const HomePageComponent = () => {
   return (
     <div>
       <h1>Home Page</h1>
-      <input type='text' placeholder='CUIT o correo electronico' />
+      <input
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        type='text'
+        placeholder='CUIT o correo electronico'
+      />
 
-      <button onClick={handleLogin}>INICIAR SESIÓN</button>
+      <button onClick={handleLogin} disabled={!inputValue}>
+        INICIAR SESIÓN
+      </button>
     </div>
   );
 };
