@@ -4,7 +4,7 @@ import { actionSetLogged } from '../redux/userSlice';
 import { userType } from '../types/user.types';
 import { useNavigate } from 'react-router-dom';
 
-export const HomePageComponent = () => {
+export const LoginPageComponent = () => {
   const user: userType = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
