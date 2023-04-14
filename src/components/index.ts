@@ -1,4 +1,5 @@
 import { HomeBalanceComponent } from './HomeBalance';
 import { ActionsComponent } from './Actions';
+import { AccountComponent } from './Account';
 
-export { ActionsComponent, HomeBalanceComponent };
+export { AccountComponent, ActionsComponent, HomeBalanceComponent };

@@ -3,6 +3,7 @@ import addAccount from '../assets/add-account.svg';
 import { useRef, useState } from 'react';
 import { useAppSelector } from '../redux/hooks';
 import { accountType } from '../types/user.types';
+import { AccountComponent } from '../components';
 
 export const WithdrawPageComponent = (): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -10,7 +11,7 @@ export const WithdrawPageComponent = (): JSX.Element => {
     (state) => state.user.linkedAccounts
   );
   const [filter, setFilter] = useState<string>('');
-  const [checked, setChecked] = useState<number>();
+  const [checked, setChecked] = useState<string>('');
 
   const handleFilterChange = () => {
     if (inputRef.current) {
@@ -18,28 +19,28 @@ export const WithdrawPageComponent = (): JSX.Element => {
     }
   };
 
-  const renderFilteredAccounts = () => {
-    const filteredAccounts = linkedAccounts.filter((account) =>
+  const renderAccountList = () => {
+    const accounts = linkedAccounts.filter((account) =>
       account.name.toLowerCase().includes(filter.toLowerCase())
     );
-    if (filteredAccounts.length) {
-      return filteredAccounts.map((acc, index) => {
+    if (accounts.length) {
+      return accounts.map((acc) => {
         return (
-          <div key={index}>
-            <p>{acc.name}</p>
-            <p>{acc.email}</p>
-            <input
-              type='radio'
-              checked={checked === index}
-              onChange={() => setChecked(index)}
-            ></input>
-          </div>
+          <AccountComponent
+            key={acc.email}
+            account={acc}
+            index={acc.email}
+            checked={checked === acc.email}
+            change={() => handleChange(acc.email)}
+          />
         );
       });
     } else {
       return <p>No hay resultados que coincidan con tu búsqueda</p>;
     }
   };
+
+  const handleChange = (index: string) => setChecked(index);
 
   return (
     <>
@@ -55,21 +56,7 @@ export const WithdrawPageComponent = (): JSX.Element => {
         onChange={handleFilterChange}
       ></input>
       <p>Tus cuentas</p>
-      {!filter
-        ? linkedAccounts.map((acc, index) => {
-            return (
-              <div key={index}>
-                <p>{acc.name}</p>
-                <p>{acc.email}</p>
-                <input
-                  type='radio'
-                  checked={checked === index}
-                  onChange={() => setChecked(index)}
-                ></input>
-              </div>
-            );
-          })
-        : renderFilteredAccounts()}
+      {renderAccountList()}
     </>
   );
 };
