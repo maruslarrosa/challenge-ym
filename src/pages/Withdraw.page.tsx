@@ -1,17 +1,28 @@
 import uploadFile from '../assets/upload-file.svg';
 import addAccount from '../assets/add-account.svg';
-import { useRef, useState } from 'react';
-import { useAppSelector } from '../redux/hooks';
+import { useEffect, useRef, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { accountType } from '../types/user.types';
 import { AccountComponent } from '../components';
+import { headerType } from '../types/header.types';
+import { actionSetHeader } from '../redux/headerSlice';
 
 export const WithdrawPageComponent = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
   const linkedAccounts: accountType[] = useAppSelector(
     (state) => state.user.linkedAccounts
   );
   const [filter, setFilter] = useState<string>('');
   const [checked, setChecked] = useState<string>('');
+
+  useEffect(() => {
+    const headerData: headerType = {
+      title: '¿A quién querés premiar?',
+      prev: '/home',
+    };
+    dispatch(actionSetHeader(headerData));
+  }, []);
 
   const handleFilterChange = () => {
     if (inputRef.current) {

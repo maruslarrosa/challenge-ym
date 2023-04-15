@@ -1,14 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../redux/hooks';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { actionSetNewBalance } from '../redux/userSlice';
 import { movementType } from '../types/user.types';
+import { headerType } from '../types/header.types';
+import { actionSetHeader } from '../redux/headerSlice';
 
 export const IncomePageComponent = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [amount, setAmount] = useState<number>(0);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const headerData: headerType = {
+      title: '¿Cuánto querés ingresar?',
+      prev: '/home',
+    };
+    dispatch(actionSetHeader(headerData));
+  }, []);
 
   const handleAddIncome = () => {
     if (inputRef.current && amount) {

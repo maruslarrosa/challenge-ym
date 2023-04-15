@@ -4,6 +4,7 @@ import { accountType, movementType, userType } from '../types/user.types';
 const initialState: userType = {
   cuit: 1234567890,
   email: 'test@example.com',
+  name: 'Test',
   balance: 10000,
   movements: [
     {

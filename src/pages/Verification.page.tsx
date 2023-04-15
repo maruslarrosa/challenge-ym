@@ -1,8 +1,20 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../redux/hooks';
+import { actionSetHeader } from '../redux/headerSlice';
+import { headerType } from '../types/header.types';
 
 export const VerificationPageComponent = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const headerData: headerType = {
+      title: 'Verificacion',
+      prev: '/',
+    };
+    dispatch(actionSetHeader(headerData));
+  }, []);
 
   /**TODO: modularize inputs into a new VerificationInputComponent */
   const ref1 = useRef<HTMLInputElement>(null);

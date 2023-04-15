@@ -12,6 +12,7 @@ export interface accountType {
 export interface userType {
   cuit: number;
   email: string;
+  name: string;
   balance: number;
   movements: movementType[];
   linkedAccounts: accountType[];
