@@ -28,7 +28,7 @@ export const ActionsComponent = () => {
             alt='Movements icon'
             onClick={() => handleActionClick('/movements')}
           />
-          <p>Enviar Premio</p>
+          <p>Movimientos</p>
         </div>
         <div className={styles.action}>
           <img
@@ -36,7 +36,7 @@ export const ActionsComponent = () => {
             alt='Withdraw icon'
             onClick={() => handleActionClick('/withdraw')}
           />
-          <p>Movimientos</p>
+          <p>Enviar Premio</p>
         </div>
         <div className={styles.action}>
           <img
