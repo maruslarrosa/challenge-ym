@@ -18,7 +18,7 @@
 .verificationDigitsContainer{
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 22rem;
   justify-content: space-around;
 }
 
