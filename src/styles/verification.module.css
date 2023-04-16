@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 5rem;
   height: 60%;
+  margin-top: 5rem;
 }
 
 .verificationInformation {
@@ -18,8 +18,8 @@
 .verificationDigitsContainer{
   display: flex;
   flex-direction: row;
-  width: 22rem;
   justify-content: space-around;
+  width: 22rem;
 }
 
 .verificationDigit {
@@ -38,7 +38,7 @@
 }
 
 .verificationEmail {
-    all: unset;
+  all: unset;
   font-size: 1.25rem;
   font-weight: 500;
 }
