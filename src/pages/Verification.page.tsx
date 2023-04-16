@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../redux/hooks';
 import { actionSetHeader } from '../redux/headerSlice';
 import { headerType } from '../types/header.types';
+import styles from '../styles/verification.module.css';
+import { ButtonComponent } from '../components';
 
 export const VerificationPageComponent = () => {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ export const VerificationPageComponent = () => {
   const ref4 = useRef<HTMLInputElement>(null);
   const ref5 = useRef<HTMLInputElement>(null);
   const ref6 = useRef<HTMLInputElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.id) {
@@ -63,54 +66,74 @@ export const VerificationPageComponent = () => {
 
   const renderVerificationDigits = () => {
     return (
-      <>
+      <div className={styles.verificationDigitsContainer}>
         <input
           id='input1'
           ref={ref1}
           type='number'
           onChange={(e) => handleInputChange(e)}
+          className={styles.verificationDigit}
         ></input>
         <input
           id='input2'
           ref={ref2}
           type='number'
           onChange={(e) => handleInputChange(e)}
+          className={styles.verificationDigit}
         ></input>
         <input
           id='input3'
           ref={ref3}
           type='number'
           onChange={(e) => handleInputChange(e)}
+          className={styles.verificationDigit}
         ></input>
         <input
           id='input4'
           ref={ref4}
           type='number'
           onChange={(e) => handleInputChange(e)}
+          className={styles.verificationDigit}
         ></input>
         <input
           id='input5'
           ref={ref5}
           type='number'
           onChange={(e) => handleInputChange(e)}
+          className={styles.verificationDigit}
         ></input>
         <input
           id='input6'
           ref={ref6}
           type='number'
           onChange={(e) => handleInputChange(e)}
+          className={styles.verificationDigit}
         ></input>
-      </>
+      </div>
     );
   };
 
+  const submitVerificationCode = () => {};
+
   return (
-    <div>
-      <h1>Verification</h1>
-      <p>Te acabamos de enviar un correo a </p>
-      <strong>test@test.com.ar</strong>
-      <p>Ingresa el código de 6 dígitos recibido</p>
+    <div className={styles.verificationContainer}>
+      <div className={styles.verificationInformation}>
+        <p className={styles.verificationText}>
+          Te acabamos de enviar un correo a{' '}
+        </p>
+        <p className={styles.verificationEmail}>test@test.com.ar</p>
+        <p className={styles.verificationText}>
+          Ingresa el código de 6 dígitos recibido
+        </p>
+      </div>
       {renderVerificationDigits()}
+      <ButtonComponent
+        buttonRef={buttonRef}
+        text='REENVIAR CÓDIGO'
+        label='Botón para reenviar código de verificación'
+        disabled={false}
+        click={submitVerificationCode}
+      />
     </div>
   );
 };
