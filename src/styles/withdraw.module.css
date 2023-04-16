@@ -1,6 +1,7 @@
 .withdrawContainer{
   display: flex;
   flex-direction: column;
+  max-width: 25rem;
   padding: 1rem;
 }
 
