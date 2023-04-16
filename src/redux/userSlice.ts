@@ -10,42 +10,42 @@ const initialState: userType = {
     {
       type: 'WITHDRAW',
       amount: 800,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'INCOME',
       amount: 10000,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'WITHDRAW',
       amount: 2000,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'INCOME',
       amount: 1000,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'WITHDRAW',
       amount: 2500,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'WITHDRAW',
       amount: 2000,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'INCOME',
       amount: 1000,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
     {
       type: 'WITHDRAW',
       amount: 2500,
-      date: '2020-01-01T00:00:00.000Z',
+      date: new Date('2020-01-01T00:00:00.000Z'),
     },
   ],
   linkedAccounts: [

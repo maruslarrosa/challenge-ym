@@ -25,7 +25,7 @@ export const IncomePageComponent = (): JSX.Element => {
       const newMovement: movementType = {
         type: 'INCOME',
         amount: amount,
-        date: '2023-01-01',
+        date: new Date('2020-01-01T00:00:00.000Z'),
       };
       dispatch(actionSetNewBalance(newMovement));
       navigate('/home');

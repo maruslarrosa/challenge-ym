@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
-import { ActionsComponent, HomeBalanceComponent } from '../components';
-import { MovementComponent } from '../components/Movement';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { actionSetHeader } from '../redux/headerSlice';
+import { useEffect } from 'react';
+import {
+  ActionsComponent,
+  HomeBalanceComponent,
+  MovementComponent,
+} from '../components';
 import { movementType } from '../types/user.types';
 import { headerType } from '../types/header.types';
-import { actionSetHeader } from '../redux/headerSlice';
+import styles from '../styles/home.module.css';
 
 export const HomePageComponent = () => {
   const dispatch = useAppDispatch();
@@ -22,17 +26,20 @@ export const HomePageComponent = () => {
   }, []);
 
   return (
-    <>
-      <HomeBalanceComponent />;
+    <div className={styles.homeContainer}>
+      <HomeBalanceComponent />
       <ActionsComponent />
-      {movements.map((movement, index) => (
-        <MovementComponent
-          type={movement.type}
-          amount={movement.amount}
-          date={movement.date}
-          key={index}
-        />
-      ))}
-    </>
+      <div className={styles.movementsContainer}>
+        <p className={styles.movementsTitle}>Últimos Movimientos</p>
+        {movements.map((movement, index) => (
+          <MovementComponent
+            type={movement.type}
+            amount={movement.amount}
+            date={movement.date}
+            key={index}
+          />
+        ))}
+      </div>
+    </div>
   );
 };

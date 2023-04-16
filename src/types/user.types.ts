@@ -1,7 +1,7 @@
 export interface movementType {
   type: string;
   amount: number;
-  date: string;
+  date: Date;
 }
 
 export interface accountType {
