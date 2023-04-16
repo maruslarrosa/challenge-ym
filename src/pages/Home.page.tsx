@@ -25,11 +25,12 @@ export const HomePageComponent = () => {
     <>
       <HomeBalanceComponent />;
       <ActionsComponent />
-      {movements.map((movement) => (
+      {movements.map((movement, index) => (
         <MovementComponent
           type={movement.type}
           amount={movement.amount}
           date={movement.date}
+          key={index}
         />
       ))}
     </>
