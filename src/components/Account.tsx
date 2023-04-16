@@ -1,5 +1,6 @@
 import { ChangeEventHandler } from 'react';
 import { accountType } from '../types/user.types';
+import styles from '../styles/withdraw.module.css';
 
 interface accountComponentType {
   account: accountType;
@@ -14,10 +15,20 @@ export const AccountComponent = ({
   change,
 }: accountComponentType): JSX.Element => {
   return (
-    <div key={index}>
-      <p>{account.name}</p>
-      <p>{account.email}</p>
-      <input type='radio' checked={checked} onChange={change}></input>
+    <div className={styles.accountContainer} key={index}>
+      <div className={styles.accountDataContainer}>
+        <div className={styles.initials}>{account.name.at(0)}</div>
+        <div className={styles.accountData}>
+          <div>{account.name}</div>
+          <div className={styles.email}>{account.email}</div>
+        </div>
+      </div>
+      <input
+        className={styles.radioButton}
+        type='radio'
+        checked={checked}
+        onChange={change}
+      ></input>
     </div>
   );
 };

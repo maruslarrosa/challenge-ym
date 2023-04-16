@@ -1,0 +1,104 @@
+.withdrawContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.withdrawTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.withdrawButton {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+/* New Accounts */
+.withdrawActionsContainer {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 25rem;
+  color: var(--orange);
+  font-size: 0.75rem;
+  text-decoration: underline solid var(--orange);
+  font-weight: 700;
+}
+
+.withdrawAction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 6rem;
+    padding-top: 0.5rem;
+}
+
+.withdrawAction:hover {
+  background-color: var(--gray);
+  border-radius: 0.5rem;
+  transition: 0.2s ease-in-out;
+}
+
+/* Search */
+.searchContainer{
+  display: flex;
+  height: 2rem;
+  max-width: 25rem;
+  background-color: #E5E5E5;
+  border-radius: 0.625rem;
+  padding: 0.5rem;
+}
+
+.searchInput{
+all: unset;
+width: 100%;
+padding-left: 1rem;
+font-size: 0.875rem;
+}
+
+/* Account List */
+
+.accountContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 25rem;
+    align-items: center;
+}
+
+.accountDataContainer{
+  display: flex;
+  align-items: center;
+
+  padding: 1rem 0rem;
+}
+
+.initials{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--white);
+  border-radius: 3rem;
+}
+
+.accountData{
+  padding: 0 1rem;
+}
+
+.email {
+  text-decoration: underline solid 1px;
+}
+
+.radioButton {
+  all: unset;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--white);
+
+}
+
+.radioButton:checked {
+ background-color: var(--green);
+}
