@@ -18,14 +18,19 @@ export const VerificationPageComponent = () => {
     dispatch(actionSetHeader(headerData));
   }, []);
 
-  /**TODO: modularize inputs into a new VerificationInputComponent */
+  /**TODO: modularize inputs into a new VerificationInputComponent
+   *
+   * Don’t call Hooks inside loops, conditions, or nested functions.
+   * Instead, always use Hooks at the top level of your React function.
+   * By following this rule, you ensure that Hooks are called in the same order each time a component renders.
+   */
+
   const ref1 = useRef<HTMLInputElement>(null);
   const ref2 = useRef<HTMLInputElement>(null);
   const ref3 = useRef<HTMLInputElement>(null);
   const ref4 = useRef<HTMLInputElement>(null);
   const ref5 = useRef<HTMLInputElement>(null);
   const ref6 = useRef<HTMLInputElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.id) {
@@ -70,42 +75,48 @@ export const VerificationPageComponent = () => {
         <input
           id='input1'
           ref={ref1}
-          type='number'
+          type='text'
+          inputMode='numeric'
           onChange={(e) => handleInputChange(e)}
           className={styles.verificationDigit}
         ></input>
         <input
           id='input2'
           ref={ref2}
-          type='number'
+          type='text'
+          inputMode='numeric'
           onChange={(e) => handleInputChange(e)}
           className={styles.verificationDigit}
         ></input>
         <input
           id='input3'
           ref={ref3}
-          type='number'
+          type='text'
+          inputMode='numeric'
           onChange={(e) => handleInputChange(e)}
           className={styles.verificationDigit}
         ></input>
         <input
           id='input4'
           ref={ref4}
-          type='number'
+          type='text'
+          inputMode='numeric'
           onChange={(e) => handleInputChange(e)}
           className={styles.verificationDigit}
         ></input>
         <input
           id='input5'
           ref={ref5}
-          type='number'
+          type='text'
+          inputMode='numeric'
           onChange={(e) => handleInputChange(e)}
           className={styles.verificationDigit}
         ></input>
         <input
           id='input6'
           ref={ref6}
-          type='number'
+          type='text'
+          inputMode='numeric'
           onChange={(e) => handleInputChange(e)}
           className={styles.verificationDigit}
         ></input>
@@ -128,7 +139,6 @@ export const VerificationPageComponent = () => {
       </div>
       {renderVerificationDigits()}
       <ButtonComponent
-        buttonRef={buttonRef}
         text='REENVIAR CÓDIGO'
         label='Botón para reenviar código de verificación'
         disabled={false}
