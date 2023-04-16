@@ -14,7 +14,8 @@ import {
 
 function App() {
   return (
-    <>
+    //TODO move style to separate css module
+    <div style={{ height: '100vh' }}>
       <Provider store={store}>
         <HeaderComponent />
         <Routes>
@@ -25,7 +26,7 @@ function App() {
           <Route path='/withdraw' element={<WithdrawPageComponent />} />
         </Routes>
       </Provider>
-    </>
+    </div>
   );
 }
 

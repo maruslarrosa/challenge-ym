@@ -6,6 +6,7 @@ import { actionSetHeader } from '../redux/headerSlice';
 import { ButtonComponent } from '../components';
 import { userType } from '../types/user.types';
 import { headerType } from '../types/header.types';
+import styles from '../styles/login.module.css';
 
 export const LoginPageComponent = () => {
   const user: userType = useAppSelector((state) => state.user);
@@ -28,13 +29,13 @@ export const LoginPageComponent = () => {
   };
 
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className={styles.loginContainer}>
       <input
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         type='text'
-        placeholder='CUIT o correo electronico'
+        placeholder='CUIT o Correo Electrónico'
+        className={styles.loginInput}
       />
 
       <ButtonComponent
@@ -43,6 +44,7 @@ export const LoginPageComponent = () => {
         disabled={!inputValue}
         click={handleLogin}
       />
+      <button className={styles.createAccount}>Aún no tengo cuenta</button>
     </div>
   );
 };
