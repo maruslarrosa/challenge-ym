@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { actionSetLogged } from '../redux/userSlice';
-import { userType } from '../types/user.types';
-import { useNavigate } from 'react-router-dom';
-import { headerType } from '../types/header.types';
 import { actionSetHeader } from '../redux/headerSlice';
+import { ButtonComponent } from '../components';
+import { userType } from '../types/user.types';
+import { headerType } from '../types/header.types';
 
 export const LoginPageComponent = () => {
   const user: userType = useAppSelector((state) => state.user);
@@ -36,9 +37,12 @@ export const LoginPageComponent = () => {
         placeholder='CUIT o correo electronico'
       />
 
-      <button onClick={handleLogin} disabled={!inputValue}>
-        INICIAR SESIÓN
-      </button>
+      <ButtonComponent
+        text='INICIAR SESIÓN'
+        label='Pulsar para iniciar sesión'
+        disabled={!inputValue}
+        click={handleLogin}
+      />
     </div>
   );
 };
