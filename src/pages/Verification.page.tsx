@@ -10,7 +10,7 @@ export const VerificationPageComponent = () => {
 
   useEffect(() => {
     const headerData: headerType = {
-      title: 'Verificacion',
+      title: 'Verificación',
       prev: '/',
     };
     dispatch(actionSetHeader(headerData));

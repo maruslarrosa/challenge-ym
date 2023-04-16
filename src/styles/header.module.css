@@ -1,0 +1,25 @@
+@import url('./colors.css');
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5rem;
+  width: 100%;
+  background-color: var(--green);
+}
+
+.goBackButton {
+  height: 1.5rem;
+  padding-left: 1rem;
+  color: var(--white);
+}
+
+.headerTitle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-right: 1rem;
+    color: var(--white);
+    font-size: 1.25rem;
+}
