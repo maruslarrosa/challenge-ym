@@ -1,8 +1,8 @@
-import { useAppSelector } from '../redux/hooks';
-import styles from '../styles/home.module.css';
+import { useAppSelector } from '../redux/hooks'
+import styles from '../styles/home.module.css'
 
-export const HomeBalanceComponent = () => {
-  const balance = useAppSelector((state) => state.user.balance);
+export const HomeBalanceComponent = (): JSX.Element => {
+  const balance = useAppSelector((state) => state.user.balance)
 
   return (
     <div className={styles.balanceContainer}>
@@ -19,5 +19,5 @@ export const HomeBalanceComponent = () => {
         </select>
       </div>
     </div>
-  );
-};
+  )
+}

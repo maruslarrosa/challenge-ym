@@ -1,19 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './userSlice';
-import headerReducer from './headerSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import userReducer from './userSlice'
+import headerReducer from './headerSlice'
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    header: headerReducer,
+    header: headerReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
-    }),
-});
+      serializableCheck: false
+    })
+})
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch

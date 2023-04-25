@@ -1,18 +1,18 @@
-import { ChangeEventHandler } from 'react';
-import { accountType } from '../types/user.types';
-import styles from '../styles/withdraw.module.css';
+import { type ChangeEventHandler } from 'react'
+import { type accountType } from '../types/user.types'
+import styles from '../styles/withdraw.module.css'
 
 interface accountComponentType {
-  account: accountType;
-  index: string;
-  checked: boolean;
-  change: ChangeEventHandler;
+  account: accountType
+  index: string
+  checked: boolean
+  change: ChangeEventHandler
 }
 export const AccountComponent = ({
   account,
   index,
   checked,
-  change,
+  change
 }: accountComponentType): JSX.Element => {
   return (
     <div className={styles.accountContainer} key={index}>
@@ -30,5 +30,5 @@ export const AccountComponent = ({
         onChange={change}
       ></input>
     </div>
-  );
-};
+  )
+}

@@ -1,42 +1,42 @@
-import uploadFile from '../assets/upload-file.svg';
-import addAccount from '../assets/add-account.svg';
-import lens from '../assets/lens.svg';
-import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { actionSetHeader } from '../redux/headerSlice';
-import { accountType } from '../types/user.types';
-import { headerType } from '../types/header.types';
-import { AccountComponent, ButtonComponent } from '../components';
-import styles from '../styles/withdraw.module.css';
+import uploadFile from '../assets/upload-file.svg'
+import addAccount from '../assets/add-account.svg'
+import lens from '../assets/lens.svg'
+import { useEffect, useRef, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { actionSetHeader } from '../redux/headerSlice'
+import { type accountType } from '../types/user.types'
+import { type headerType } from '../types/header.types'
+import { AccountComponent, ButtonComponent } from '../components'
+import styles from '../styles/withdraw.module.css'
 
 export const WithdrawPageComponent = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useAppDispatch()
+  const inputRef = useRef<HTMLInputElement>(null)
   const linkedAccounts: accountType[] = useAppSelector(
     (state) => state.user.linkedAccounts
-  );
-  const [filter, setFilter] = useState<string>('');
-  const [checked, setChecked] = useState<string>('');
+  )
+  const [filter, setFilter] = useState<string>('')
+  const [checked, setChecked] = useState<string>('')
 
   useEffect(() => {
     const headerData: headerType = {
       title: '¿A quién querés premiar?',
-      prev: '/home',
-    };
-    dispatch(actionSetHeader(headerData));
-  }, []);
-
-  const handleFilterChange = () => {
-    if (inputRef.current) {
-      setFilter(inputRef.current?.value);
+      prev: '/home'
     }
-  };
+    dispatch(actionSetHeader(headerData))
+  }, [])
 
-  const renderAccountList = () => {
+  const handleFilterChange = (): void => {
+    if (inputRef.current != null) {
+      setFilter(inputRef.current?.value)
+    }
+  }
+
+  const renderAccountList = (): JSX.Element[] | JSX.Element => {
     const accounts = linkedAccounts.filter((account) =>
       account.name.toLowerCase().includes(filter.toLowerCase())
-    );
-    if (accounts.length) {
+    )
+    if (accounts.length > 0) {
       return accounts.map((acc) => {
         return (
           <AccountComponent
@@ -44,18 +44,18 @@ export const WithdrawPageComponent = (): JSX.Element => {
             account={acc}
             index={acc.email}
             checked={checked === acc.email}
-            change={() => handleChange(acc.email)}
+            change={() => { handleChange(acc.email) }}
           />
-        );
-      });
+        )
+      })
     } else {
-      return <p>No hay resultados que coincidan con tu búsqueda</p>;
+      return <p>No hay resultados que coincidan con tu búsqueda</p>
     }
-  };
+  }
 
-  const handleChange = (index: string) => setChecked(index);
+  const handleChange = (index: string): void => { setChecked(index) }
 
-  const handleWithdrawalClick = () => {};
+  const handleWithdrawalClick = (): void => {}
 
   return (
     <div className={styles.withdrawContainer}>
@@ -86,10 +86,10 @@ export const WithdrawPageComponent = (): JSX.Element => {
         <ButtonComponent
           text='CONTINUAR'
           label='Boton para enviar premio'
-          disabled={!checked}
+          disabled={checked.length === 0}
           click={handleWithdrawalClick}
         />
       </div>
     </div>
-  );
-};
+  )
+}

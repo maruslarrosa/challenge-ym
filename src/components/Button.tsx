@@ -1,14 +1,14 @@
-import styles from '../styles/button.module.css';
+import styles from '../styles/button.module.css'
 
 interface buttonType {
-  text: string;
-  label: string;
-  disabled: boolean;
-  click: React.MouseEventHandler<HTMLButtonElement>;
+  text: string
+  label: string
+  disabled: boolean
+  click: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const ButtonComponent = (props: buttonType): JSX.Element => {
-  const { text, label, disabled, click } = props;
+  const { text, label, disabled, click } = props
   return (
     <button
       aria-label={label}
@@ -18,5 +18,5 @@ export const ButtonComponent = (props: buttonType): JSX.Element => {
     >
       <p className={styles.buttonTextPrimary}>{text.toUpperCase()}</p>
     </button>
-  );
-};
+  )
+}

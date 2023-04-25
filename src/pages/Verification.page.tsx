@@ -1,75 +1,75 @@
-import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../redux/hooks';
-import { actionSetHeader } from '../redux/headerSlice';
-import { headerType } from '../types/header.types';
-import styles from '../styles/verification.module.css';
-import { ButtonComponent } from '../components';
+import { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '../redux/hooks'
+import { actionSetHeader } from '../redux/headerSlice'
+import { type headerType } from '../types/header.types'
+import styles from '../styles/verification.module.css'
+import { ButtonComponent } from '../components'
 
-export const VerificationPageComponent = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+export const VerificationPageComponent = (): JSX.Element => {
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     const headerData: headerType = {
       title: 'Verificación',
-      prev: '/',
-    };
-    dispatch(actionSetHeader(headerData));
-  }, []);
+      prev: '/'
+    }
+    dispatch(actionSetHeader(headerData))
+  }, [])
 
-  /**TODO: modularize inputs into a new VerificationInputComponent
+  /** TODO: modularize inputs into a new VerificationInputComponent
    *
    * Don’t call Hooks inside loops, conditions, or nested functions.
    * Instead, always use Hooks at the top level of your React function.
    * By following this rule, you ensure that Hooks are called in the same order each time a component renders.
    */
 
-  const ref1 = useRef<HTMLInputElement>(null);
-  const ref2 = useRef<HTMLInputElement>(null);
-  const ref3 = useRef<HTMLInputElement>(null);
-  const ref4 = useRef<HTMLInputElement>(null);
-  const ref5 = useRef<HTMLInputElement>(null);
-  const ref6 = useRef<HTMLInputElement>(null);
+  const ref1 = useRef<HTMLInputElement>(null)
+  const ref2 = useRef<HTMLInputElement>(null)
+  const ref3 = useRef<HTMLInputElement>(null)
+  const ref4 = useRef<HTMLInputElement>(null)
+  const ref5 = useRef<HTMLInputElement>(null)
+  const ref6 = useRef<HTMLInputElement>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     switch (e.target.id) {
       case 'input1':
-        if (ref1.current?.value) {
-          ref2.current?.focus();
+        if ((ref1.current?.value) != null) {
+          ref2.current?.focus()
         }
-        break;
+        break
       case 'input2':
-        if (ref2.current?.value) {
-          ref3.current?.focus();
+        if ((ref2.current?.value) != null) {
+          ref3.current?.focus()
         }
-        break;
+        break
       case 'input3':
-        if (ref3.current?.value) {
-          ref4.current?.focus();
+        if ((ref3.current?.value) != null) {
+          ref4.current?.focus()
         }
-        break;
+        break
       case 'input4':
-        if (ref4.current?.value) {
-          ref5.current?.focus();
+        if ((ref4.current?.value) != null) {
+          ref5.current?.focus()
         }
-        break;
+        break
       case 'input5':
-        if (ref5.current?.value) {
-          ref6.current?.focus();
+        if ((ref5.current?.value) != null) {
+          ref6.current?.focus()
         }
-        break;
+        break
       case 'input6':
-        if (ref6.current?.value) {
-          navigate('/home');
+        if ((ref6.current?.value) != null) {
+          navigate('/home')
         }
-        break;
+        break
       default:
-        break;
+        break
     }
-  };
+  }
 
-  const renderVerificationDigits = () => {
+  const renderVerificationDigits = (): JSX.Element => {
     return (
       <div className={styles.verificationDigitsContainer}>
         <input
@@ -77,7 +77,7 @@ export const VerificationPageComponent = () => {
           ref={ref1}
           type='text'
           inputMode='numeric'
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => { handleInputChange(e) }}
           className={styles.verificationDigit}
         ></input>
         <input
@@ -85,7 +85,7 @@ export const VerificationPageComponent = () => {
           ref={ref2}
           type='text'
           inputMode='numeric'
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => { handleInputChange(e) }}
           className={styles.verificationDigit}
         ></input>
         <input
@@ -93,7 +93,7 @@ export const VerificationPageComponent = () => {
           ref={ref3}
           type='text'
           inputMode='numeric'
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => { handleInputChange(e) }}
           className={styles.verificationDigit}
         ></input>
         <input
@@ -101,7 +101,7 @@ export const VerificationPageComponent = () => {
           ref={ref4}
           type='text'
           inputMode='numeric'
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => { handleInputChange(e) }}
           className={styles.verificationDigit}
         ></input>
         <input
@@ -109,7 +109,7 @@ export const VerificationPageComponent = () => {
           ref={ref5}
           type='text'
           inputMode='numeric'
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => { handleInputChange(e) }}
           className={styles.verificationDigit}
         ></input>
         <input
@@ -117,14 +117,14 @@ export const VerificationPageComponent = () => {
           ref={ref6}
           type='text'
           inputMode='numeric'
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => { handleInputChange(e) }}
           className={styles.verificationDigit}
         ></input>
       </div>
-    );
-  };
+    )
+  }
 
-  const submitVerificationCode = () => {};
+  const submitVerificationCode = (): void => {}
 
   return (
     <div className={styles.verificationContainer}>
@@ -145,5 +145,5 @@ export const VerificationPageComponent = () => {
         click={submitVerificationCode}
       />
     </div>
-  );
-};
+  )
+}

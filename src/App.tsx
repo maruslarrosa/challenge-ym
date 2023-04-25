@@ -1,7 +1,7 @@
-import './App.css';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
-import { Route, Routes } from 'react-router-dom';
+import './App.css'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
+import { Route, Routes } from 'react-router-dom'
 // Components
 import {
   HeaderComponent,
@@ -9,12 +9,12 @@ import {
   IncomePageComponent,
   LoginPageComponent,
   VerificationPageComponent,
-  WithdrawPageComponent,
-} from './pages/pageindex';
+  WithdrawPageComponent
+} from './pages/pageindex'
 
-function App() {
+function App (): JSX.Element {
   return (
-    //TODO move style to separate css module
+    // TODO move style to separate css module
     <div style={{ height: '100vh' }}>
       <Provider store={store}>
         <HeaderComponent />
@@ -27,7 +27,7 @@ function App() {
         </Routes>
       </Provider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
